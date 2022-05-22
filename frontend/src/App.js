@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import React, { useState } from "react";
+import {
+  Button,
+  Input,
+  InputGroup,
+  Col,
+  Row,
+  FormGroup,
+  Label,
+  // Select,
+} from "reactstrap";
 
 function App() {
+  const [name, setName] = useState([]);
+  const [surname, setSurname] = useState([]);
+  const [phone, setPhone] = useState([]);
+  const [email, setEmail] = useState([]);
+
+  const Deneme = () => {
+    console.log("a");
+  };
+
+  const data = ["aaa", "bbb", "ccc"];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row>
+        <Col>
+          <FormGroup className="mt-3">
+            <Label for="name">Name</Label>
+            <Input id="name" name="name" placeholder="Name" />
+
+            <Label for="surname" className="mt-5">
+              Surname
+            </Label>
+            <Input id="surname" name="surname" placeholder="Surname" />
+
+            <Label for="email" className="mt-5">
+              Email
+            </Label>
+
+            <Input id="email" name="email" placeholder="Email" />
+
+            <Label for="deneme" className="mt-5">
+              Deneme
+            </Label>
+            <InputGroup>
+              <Input placeholder="Deneme" name="deneme" id="deneme" />
+              <Button type="submit">Save</Button>
+            </InputGroup>
+          </FormGroup>
+        </Col>
+        <Col> {/* <Select options={data}></Select> */}</Col>
+      </Row>
     </div>
   );
 }
