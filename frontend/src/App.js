@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
+
+import Select from "react-select";
 import {
   Button,
   Input,
@@ -17,12 +19,17 @@ function App() {
   const [surname, setSurname] = useState([]);
   const [phone, setPhone] = useState([]);
   const [email, setEmail] = useState([]);
+  const [rastgele, setRastgele] = useState([]);
 
   const Deneme = () => {
     console.log("a");
   };
 
-  const data = ["aaa", "bbb", "ccc"];
+  const options = [
+    { id: "chocolate", text: "Chocolate" },
+    { id: "strawberry", text: "Strawberry" },
+    { id: "vanilla", text: "Vanilla" },
+  ];
 
   return (
     <div className="App">
@@ -52,7 +59,22 @@ function App() {
             </InputGroup>
           </FormGroup>
         </Col>
-        <Col> {/* <Select options={data}></Select> */}</Col>
+
+        <Col>
+          <FormGroup className="mt-3">
+            <Label for="rastgele">Rastgele</Label>
+            <Select
+              id="rastgele"
+              name="rastgele"
+              placeholder="rastgele"
+              getOptionLabel={(row) => row.text}
+              getOptionValue={(row) => row.id}
+              options={options}
+              value={rastgele}
+              onChange={(e) => setRastgele(e)}
+            />
+          </FormGroup>
+        </Col>
       </Row>
     </div>
   );
